@@ -1,0 +1,18 @@
+# Стартовый скрипт этапа 3: все команды этапов 1-3 и работа с VFS.
+# Переменные окружения и разбор строки
+ls -l $HOME "$HOME/docs" '$HOME'
+cd ${HOME}
+# Ошибки разбора и неизвестные команды
+ls "unclosed
+cd ${HOME
+cat hello.txt
+# vfs-save: ошибки
+vfs-save
+vfs-save a.zip b.zip
+vfs-save /nonexistent-dir/saved.zip
+# vfs-save: сохранение состояния VFS на диск
+vfs-save out/saved.zip
+# exit: ошибки и нормальное завершение
+exit 1 2
+exit abc
+exit 0

@@ -1,0 +1,45 @@
+# Стартовый скрипт этапа 4 (запускать с VFS vfs/deep.zip):
+# ls, cd, date, uniq, du во всех режимах, включая ошибки.
+# --- ls ---
+ls
+ls -a
+ls -l home/user
+ls -la ~/home/user/docs
+ls -R home
+ls var/log/syslog etc nope
+ls -x
+# --- cd ---
+cd home/user/docs
+cd drafts/old
+cd ../../..
+cd -
+cd
+cd nope
+cd var/log/syslog
+cd a b
+# --- date ---
+date
+date -u
+date -I
+date "+%Y/%m/%d %H:%M"
+date bad
+date +%Y extra
+# --- uniq ---
+uniq var/log/syslog
+uniq -c var/log/syslog
+uniq -d var/log/syslog
+uniq -u var/log/syslog
+uniq -ci var/log/syslog
+uniq var/log/syslog tmp/uniq.txt
+ls -l tmp
+uniq
+uniq etc
+uniq nope
+uniq a b c
+# --- du ---
+du
+du -a home
+du -sh .
+du -hc bin etc nope
+du -as
+exit 0

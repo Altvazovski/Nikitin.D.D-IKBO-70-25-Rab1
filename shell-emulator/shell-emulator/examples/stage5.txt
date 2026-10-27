@@ -1,0 +1,56 @@
+# Стартовый скрипт этапа 5 (запускать с VFS vfs/deep.zip):
+# rmdir, mv и help во всех режимах, включая ошибки.
+# Все изменения выполняются только в памяти.
+# --- help ---
+help
+help mv rmdir
+help nope
+# --- rmdir: удаление пустых каталогов ---
+ls tmp home/user
+rmdir tmp
+rmdir -v home/user/music
+ls home/user
+# --- rmdir: ошибки ---
+rmdir
+rmdir -x var
+rmdir nope
+rmdir home
+rmdir etc/config/app.conf
+rmdir .
+cd var/log
+rmdir ~/var/log ~/var
+cd
+# --- mv: переименование ---
+mv -v home/user/docs/report.txt home/user/docs/summary.txt
+mv etc/config ~/etc/settings
+ls -R etc
+# --- mv: перемещение нескольких источников в каталог ---
+mv -v var/log/syslog etc/settings/app.conf bin
+ls bin
+# --- mv: перемещение текущего каталога и его содержимого ---
+cd home/user/docs
+mv drafts/old/v0.txt drafts/v1.txt .
+ls
+cd -
+# --- rmdir -p: удаление цепочки каталогов ---
+rmdir -pv home/user/docs/drafts/old
+ls home/user/docs
+# --- mv: ошибки ---
+mv
+mv a
+mv nope bin
+mv bin/syslog bin/tool.bin home/user/.profile
+mv home home/user/inside
+mv bin/syslog bin/syslog
+mv home/user/docs bin/syslog
+mv / bin
+# --- mv -n: без перезаписи ---
+mv -n bin/syslog home/user/.profile
+uniq home/user/.profile
+mv bin/syslog home/user/.profile
+uniq -c home/user/.profile
+# --- итоговое состояние VFS ---
+ls -laR
+du -ah
+vfs-save out/stage5.zip
+exit 0

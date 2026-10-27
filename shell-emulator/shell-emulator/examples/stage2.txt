@@ -1,0 +1,10 @@
+# Стартовый скрипт этапа 2: команды выполняются последовательно,
+# ошибочные строки пропускаются.
+ls -l $HOME
+cd "$HOME/projects" 'no $expansion here'
+unknown-command arg
+ls "unclosed quote
+cd ${HOME
+ls ${USER}_files $?
+exit abc
+exit
